@@ -1,0 +1,5 @@
+package activeobject;
+
+class Servant {
+}
+

@@ -1,0 +1,4 @@
+package activeobject;
+
+class ActivationQueue {
+}
