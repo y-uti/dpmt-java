@@ -10,7 +10,7 @@ class DisplayStringRequest extends MethodRequest<Object> {
     }
 
     public boolean guard() {
-	return !servant.IsNeedToMake();
+	return servant.canDisplay();
     }
 
     public void execute() {

@@ -2,14 +2,14 @@ package activeobject;
 
 class Servant implements ActiveObject {
 
-    private boolean needToMake = false;
+    private boolean canDisplay = false;
 
-    public boolean IsNeedToMake() {
-	return needToMake;
+    public boolean canDisplay() {
+	return canDisplay;
     }
 
     public Result<String> makeString(int count, char fillchar) {
-	needToMake = false;
+	canDisplay = true;
 	char[] buffer = new char[count];
 	for (int i = 0; i < count; i++) {
 	    buffer[i] = fillchar;
@@ -22,12 +22,12 @@ class Servant implements ActiveObject {
     }
 
     public void displayString(String string) {
-	if (needToMake) {
+	if (!canDisplay) {
 	    System.out.println("*ERROR* you must need to make a string");
 	    return;
 	}
 
-	needToMake = true;
+	canDisplay = false;
 	try {
 	    System.out.println("displayString: " + string);
 	    Thread.sleep(10);
