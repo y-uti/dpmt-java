@@ -17,11 +17,10 @@ class SchedulerThread extends Thread {
 	    MethodRequest request = queue.takeRequest();
 	    if (request != null) {
 		request.execute();
-	    } else {
-		try {
-		    Thread.sleep(10);
-		} catch (InterruptedException e) {
-		}
+	    }
+	    try {
+		Thread.sleep(10);
+	    } catch (InterruptedException e) {
 	    }
 	}
     }
