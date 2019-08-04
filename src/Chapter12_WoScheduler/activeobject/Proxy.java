@@ -10,20 +10,11 @@ class Proxy implements ActiveObject {
 
     public Result<String> makeString(int count, char fillchar) {
 	FutureResult<String> future = new FutureResult<String>();
-	new Thread() {
-	    public void run() {
-		Result<String> result = servant.makeString(count, fillchar);
-		future.setResult(result);
-	    }
-	}.start();
+	new Thread(new MakeStringRequest(servant, future, count, fillchar)).start();
 	return future;
     }
 
     public void displayString(String string) {
-	new Thread() {
-	    public void run() {
-		servant.displayString(string);
-	    }
-	}.start();
+	new Thread(new DisplayStringRequest(servant, string)).start();
     }
 }
