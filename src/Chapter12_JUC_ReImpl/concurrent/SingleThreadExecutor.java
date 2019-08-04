@@ -1,6 +1,6 @@
 package concurrent;
 
-public class SingleThreadExecutor extends Thread implements ExecutorService {
+class SingleThreadExecutor extends Thread implements ExecutorService {
 
     private final ActivationQueue queue;
     private boolean shutdownRequested;
